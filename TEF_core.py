@@ -14,6 +14,8 @@ traceEviList = ['spotlight', 'msoffice', 'googledrive', 'diagonositc', 'recentfi
                 'mail', 'gmail'
                 ]
 
+#1
+
 def traceEvidenceExtraction(sourceFolder, username):
     ec.spotlightExtractor(sourceFolder, username)
     ec.msofficeExtractor(sourceFolder, username)
