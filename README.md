@@ -16,7 +16,7 @@ Discovering spoliation of evidence through identifying traces on deleted files i
 
 # TEFT (Trace Evidence Forensics Tool)
 
-## Building - Windows & macOS
+## Building - Windows
  - The Python 3.7 or above must be registered in the system environment variable
  - No additional install is necessary
  
@@ -59,6 +59,45 @@ Activate.bat
 Run TEFT:
 ```
 python TEFT_core.py
+```
+
+## Building - macOS
+ - The Python 3.7 or above must be registered in the system environment variable
+ - No additional install is necessary
+ 
+## Git
+
+To get the source using git run:
+<pre><code>git clone https://github.com/blackmax90/TraceEvidence-on-macOS.git</code></pre>
+
+## Install/Dependency
+
+To run TEFT, please change the Full Disk Access permissions.
+
+Execute Powershell as administrator:
+```
+System Preferences -> Security & Privacy -> Privacy -> Full Disk Access '+' -> Terminal
+```
+
+Installing the Requirements Library to Run in PowerShell:
+```
+./build.sh
+```
+
+## Run
+Open Folder:
+```
+cd TraceEvidence-on-macOS
+```
+
+Activate venv(if not activated):
+```
+source ./venv/bin/activate
+```
+
+Run TEFT:
+```
+./TEFT_core.py
 ```
 
 
