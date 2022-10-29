@@ -67,13 +67,16 @@ def msofficeParser(path_dir):
                     if s[file_start_offset[i]+44] != 92: #0x52
                         data_info = Trace()
                         datalist.append(data_info)
-                        tempfilesize = s[file_start_offset[i]+50]
-                        if 'https' not in str(s[file_start_offset[i]+54:file_start_offset[i]+54+tempfilesize-1])[2:].replace('\\\\','/').split('/')[0]:
-                            datalist[filecount].path = str(s[file_start_offset[i]+54:file_start_offset[i]+54+tempfilesize-1])[2:].replace('\\\\','/').split('/')[1:-1]
-                        datalist[filecount].name = str(s[file_start_offset[i]+54:file_start_offset[i]+54+tempfilesize-1])[2:].replace('\\\\','/').split('/')[-1].split('.')[0]
-                        datalist[filecount].ext = str(s[file_start_offset[i]+54:file_start_offset[i]+54+tempfilesize-1])[2:-1].replace('\\\\','/').split('/')[-1].split('.')[1]
-                        datalist[filecount].type = 'MSOFFICE'
-                        datalist[filecount].source = 'ComRPCDB'
+                        try:
+                            tempfilesize = s[file_start_offset[i]+50]
+                            if 'https' not in str(s[file_start_offset[i]+54:file_start_offset[i]+54+tempfilesize-1])[2:].replace('\\\\','/').split('/')[0]:
+                                datalist[filecount].path = str(s[file_start_offset[i]+54:file_start_offset[i]+54+tempfilesize-1])[2:].replace('\\\\','/').split('/')[1:-1]
+                            datalist[filecount].name = str(s[file_start_offset[i]+54:file_start_offset[i]+54+tempfilesize-1])[2:].replace('\\\\','/').split('/')[-1].split('.')[0]
+                            datalist[filecount].ext = str(s[file_start_offset[i]+54:file_start_offset[i]+54+tempfilesize-1])[2:-1].replace('\\\\','/').split('/')[-1].split('.')[1]
+                            datalist[filecount].type = 'MSOFFICE'
+                            datalist[filecount].source = 'ComRPCDB'
+                        except:
+                            print("Error - Parser - ComRPCDB")
                         filecount = filecount + 1
 
         elif 'MicrosoftRegistrationDB' in file:

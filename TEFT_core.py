@@ -160,14 +160,38 @@ class TEFT_Core():
     def traceEvidenceParser(self, path_dir):
         temp_list = [] # Initialize
         final_list = []
-        temp_list.append(ac.msofficeParser(path_dir+'/msoffice'))
-        temp_list.append(ac.googledriveParser(path_dir+'/googledrive'))
-        temp_list.append(ac.spotlightParser(path_dir+'/spotlight'))
-        temp_list.append(ac.knowledgeCParser(path_dir+'/knowledgec'))
-        temp_list.append(ac.iCloudParser(path_dir+'/icloud'))
-        temp_list.append(ac.teamsParser(path_dir+'/teams'))
-        temp_list.append(ac.mailParser(path_dir+'/mail'))
-        temp_list.append(ac.recentfilesParser(path_dir+'/recentfiles'))
+        try:
+            temp_list.append(ac.msofficeParser(path_dir+'/msoffice'))
+        except:
+            print("ERROR - PARSER - MSOFFICE")
+        try:
+            temp_list.append(ac.googledriveParser(path_dir+'/googledrive'))
+        except:
+            print("ERROR - PARSER - GoogleDrive")
+        try:
+            temp_list.append(ac.spotlightParser(path_dir+'/spotlight'))
+        except:
+            print("ERROR - PARSER - Spotlight")
+        try:
+            temp_list.append(ac.knowledgeCParser(path_dir+'/knowledgec'))
+        except:
+            print("ERROR - PARSER - knowledgec")
+        try:
+            temp_list.append(ac.iCloudParser(path_dir+'/icloud'))
+        except:
+            print("ERROR - PARSER - icloud")
+        try:
+            temp_list.append(ac.teamsParser(path_dir+'/teams'))
+        except:
+            print("ERROR - PARSER - Teams")
+        try:
+            temp_list.append(ac.mailParser(path_dir+'/mail'))
+        except:
+            print("ERROR - PARSER - mail")
+        try:
+            temp_list.append(ac.recentfilesParser(path_dir+'/recentfiles'))
+        except:
+            print("ERROR - PARSER - recentfiles")
 
         for i in temp_list:
             for j in i:
