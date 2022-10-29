@@ -100,7 +100,7 @@ source ./venv/bin/activate
 
 Run TEFT:
 ```
-./TEFT_core.py
+python3 ./TEFT_core.py
 ```
 
 
