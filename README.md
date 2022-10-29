@@ -73,13 +73,16 @@ To get the source using git run:
 ## Install/Dependency
 
 To run TEFT, please change the Full Disk Access permissions.
-
-Execute Powershell as administrator:
 ```
 System Preferences -> Security & Privacy -> Privacy -> Full Disk Access '+' -> Terminal
 ```
 
-Installing the Requirements Library to Run in PowerShell:
+changing file permission to Run:
+```
+sudo chmod 755 ./build.sh
+```
+
+Installing the Requirements Library to Run:
 ```
 ./build.sh
 ```
