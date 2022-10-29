@@ -16,11 +16,9 @@ class Trace:
         self.type = ''
         self.source = ''
 
-filecount = 0
-datalist = []
-
 def msofficeParser(path_dir):
-    global filecount
+    datalist = []
+    filecount = 0
 
     filelist = os.listdir(path_dir)
     for file in filelist:
@@ -122,7 +120,8 @@ def msofficeParser(path_dir):
     return datalist
 
 def googledriveParser(path_dir):
-    global filecount
+    datalist = []
+    filecount = 0
 
     filelist = os.listdir(path_dir)
     for file in filelist:
@@ -187,7 +186,8 @@ def googledriveParser(path_dir):
     return datalist
 
 def spotlightParser(path_dir):
-    global filecount
+    datalist = []
+    filecount = 0
 
     # Shortcuts
     filelist = os.listdir(path_dir)
@@ -215,7 +215,8 @@ def spotlightParser(path_dir):
     return datalist
 
 def knowledgeCParser(path_dir):
-    global filecount
+    datalist = []
+    filecount = 0
 
     filelist = os.listdir(path_dir)
     for file in filelist:
@@ -262,7 +263,8 @@ def knowledgeCParser(path_dir):
     return datalist
 
 def iCloudParser(path_dir):
-    global filecount
+    datalist = []
+    filecount = 0
 
     #client.db-wal
     #server.db-wal
@@ -270,7 +272,8 @@ def iCloudParser(path_dir):
     return datalist
 
 def teamsParser(path_dir):
-    global filecount
+    datalist = []
+    filecount = 0
 
     filelist = os.listdir(path_dir)
     for file in filelist:
@@ -283,8 +286,8 @@ def teamsParser(path_dir):
                 for i in range(0, len(file_start_offset)):
                     data_info = Trace()
                     datalist.append(data_info)
-                    datalist[filecount].name = str(s[file_start_offset[i] + 9:file_end_offset[i]+5])[2:].split('.')[0]
-                    datalist[filecount].ext = str(s[file_start_offset[i] + 9:file_end_offset[i]+5])[2:].split('.')[1]
+                    datalist[filecount].name = str(s[file_start_offset[i] + 9:file_end_offset[i]+5])[2:-1].split('.')[0]
+                    datalist[filecount].ext = str(s[file_start_offset[i] + 9:file_end_offset[i]+5])[2:-1].split('.')[1]
                     datalist[filecount].type = 'TEAMS'
                     datalist[filecount].source = file
                     filecount = filecount + 1
@@ -292,7 +295,8 @@ def teamsParser(path_dir):
     return datalist
 
 def mailParser(path_dir):
-    global filecount
+    datalist = []
+    filecount = 0
 
     filelist = os.listdir(path_dir)
     for file in filelist:
@@ -304,7 +308,7 @@ def mailParser(path_dir):
                 for i in range(0, len(file_start_offset)):
                     data_info = Trace()
                     datalist.append(data_info)
-                    datalist[filecount].name = str(s[file_start_offset[i] + 6:file_start_offset[i] + 100]).split('.')[0]
+                    datalist[filecount].name = str(s[file_start_offset[i] + 6:file_start_offset[i] + 100])[2:-1].split('.')[0]
                     datalist[filecount].ext = 'docx'
                     datalist[filecount].type = 'MAIL'
                     datalist[filecount].source = file
@@ -313,7 +317,8 @@ def mailParser(path_dir):
     return datalist
 
 def recentfilesParser(path_dir):
-    global filecount
+    datalist = []
+    filecount = 0
 
     filelist = os.listdir(path_dir)
     for file in filelist:
@@ -355,7 +360,4 @@ def recentfilesParser(path_dir):
                     datalist[filecount].source = file
                     filecount = filecount + 1
 
-    return datalist
-
-def finalDataList():
     return datalist
